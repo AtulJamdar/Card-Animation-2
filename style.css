@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #000000;
+    font-family: 'Arial', sans-serif;
+}
+
+.galaxy-card {
+    position: relative;
+    width: 400px;
+    height: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+    /* cursor: none; */
+    cursor: default;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 20, 20, 0.95);
+    border-radius: 20px;
+    padding: 2rem;
+    color: white;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+}
+
+.vortex {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: linear-gradient( 45deg, #7f00ff, #e100ff, #0072ff);
+    animation: rotate 20s linear infinite;
+    opacity: 0.3;
+}
+
+.particle {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particle-float 3s infinite;
+}
+
+.light-trail {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient( circle at var(--x) var(--y), rgba(255, 255, 255, 0.1), transparent 40%);
+    pointer-events: none;
+    transition: 0.1s;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes particle-float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.card-title {
+    font-size: 3rem;
+    background: linear-gradient(45deg, #7f00ff, #0072ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+}
+
+.card-content {
+    position: relative;
+    z-index: 3;
+}
+
+.magic-button {
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, #7f00ff, #0072ff);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 2rem;
+}
+
+.magic-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(127, 0, 255, 0.5);
+}
